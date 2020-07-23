@@ -61,4 +61,12 @@ function info(req, res) {
   })
 }
 
-module.exports = { login, info, tokens }
+function logout(req, res) {
+  res.send({
+    code: 20000,
+    data: 'success'
+  })
+  return true
+}
+
+module.exports = { login, info, tokens, logout }

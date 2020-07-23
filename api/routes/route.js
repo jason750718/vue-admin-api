@@ -1,7 +1,13 @@
-const dataList = require('../controllers/dataController')
+const data = require('../controllers/data')
+const user = require('../controllers/user')
 
 module.exports = function getData(app) {
-  app.route('/fetch').get(dataList.fetchList)
+  app.route('/fetch').get(data.fetchList)
+
+  //app.router.use('/user', user)
+  app.route('/user/login').post(user.login)
+  app.route('/user/info').get(user.info)
+  app.route('/user/logout').post(user.logout)
 
   // todoList Routes
   // app.route('/tasks')
