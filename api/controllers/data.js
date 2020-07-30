@@ -3,7 +3,7 @@
 
 // 針對不同request的回應(json格式)
 
-let testList = [
+let mockData = [
   {
     id: 1,
     type: 'CN',
@@ -22,17 +22,17 @@ function fetchList(req, res) {
   const { page = 1, limit = 20, sort } = req.query
 
   if (sort === '-id') {
-    testList = testList.reverse()
+    mockData = mockData.reverse()
   }
 
-  const pageList = testList.filter((item, index) => {
+  const pageList = mockData.filter((item, index) => {
     return index < limit * page && index >= limit * (page - 1)
   })
 
   res.send({
     code: 20000,
     data: {
-      total: testList.length,
+      total: mockData.length,
       items: pageList
     }
   })

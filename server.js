@@ -4,7 +4,7 @@ const express = require("express");
 const route = require("./api/routes/route");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.use(urlencoded({ extended: true }));
 app.use(json());
@@ -18,7 +18,7 @@ app.use((req, res, next) => {
   );
 
   // 設定為前端服務的IP:Port
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH"

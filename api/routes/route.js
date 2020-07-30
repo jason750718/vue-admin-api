@@ -1,5 +1,6 @@
 const data = require('../controllers/data')
 const user = require('../controllers/user')
+const transaction = require('../controllers/transaction')
 
 module.exports = function getData(app) {
   app.route('/fetch').get(data.fetchList)
@@ -8,6 +9,8 @@ module.exports = function getData(app) {
   app.route('/user/login').post(user.login)
   app.route('/user/info').get(user.info)
   app.route('/user/logout').post(user.logout)
+
+  app.route('/transaction/list').get(transaction.transactionList)
 
   // todoList Routes
   // app.route('/tasks')
